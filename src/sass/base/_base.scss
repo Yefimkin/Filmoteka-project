@@ -17,6 +17,12 @@ img {
     height: auto;
 }
 
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    transition: all 250ms ease-in-out;
+}
+
 input,
 button,
 textarea,

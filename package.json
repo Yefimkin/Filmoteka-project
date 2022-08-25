@@ -18,7 +18,13 @@
     "url": "https://github.com/Yefimkin/Filmoteka-project"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "axios": "^0.27.2",
+    "basiclightbox": "^5.0.4",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.5",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
