@@ -70,18 +70,14 @@
     }
         background-color: transparent;
         border: transparent;
-        border-bottom: 1px solid var(--primary-white-color);
+        border-bottom: 1px solid var(--logo-color);
     
         font-family: var(--main-font);
     
         color: var(--primary-white-color);
-    
-    
-    
+        
         &::placeholder {
             color: var(--primary-white-color);
-    
-    
         }
     
         &:focus {
@@ -92,5 +88,26 @@
                 color: var(--brand-orange-color);
             }
         }
-        
+}
+
+.search-btn {
+    
+    top: 0;
+    right: 0;
+
+    @media screen and (min-width: 768px) {
+        right: 142px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        right: 273px;
+    }
+
+    padding: 0;
+
+    background-color: transparent;
+    border: transparent;
+
+    color: var(--logo-color);
+
 }
