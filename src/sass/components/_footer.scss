@@ -27,8 +27,8 @@ p {
         padding-right: 75px;
     }
 
-    @media screen and (min-width: 1024px) {
-        width: 1024px;
+    @media screen and (min-width: 1280px) {
+        width: 1280px;
         padding-left: 71px;
         padding-right: 71px;
     }
@@ -82,8 +82,38 @@ footer {
     }
 }
 
-.animate__heartBeat{
-    animation: bounce;
-    animation-duration: 20s;
+.footer-icon {
+    position: relative;
+    align-self: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 14px;
+    width: 16px;
+    fill: var(--secondary-active-color);
+    transform: scale(1);
+    animation: pulse 1s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(2);
+    }
+}
+
+.link-footer {
+    position: relative;
+    color: var(--footer-text-color);
+    margin-left: 5px;
+}
+
+.link-footer:hover,
+.link-footer:focus {
+    font-weight: var(--text-bold);
+    margin-left: 5px;
+    
 }
 
