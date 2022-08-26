@@ -34,4 +34,10 @@ export class FilmApiService {
         const responce = await axios.get(url);
         return responce.data;
     }
+
+    async fetchGenres() {
+        const url = `${BASE_URL}/genre/movie/list?${API_KEY}&language=en-US`;
+        const responce = await axios.get(url);
+        return responce.data;
+  }
 }
