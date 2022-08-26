@@ -104,3 +104,15 @@ footer {
     }
 }
 
+.link-footer {
+    position: relative;
+    color: var(--footer-text-color);
+    margin-left: 5px;
+}
+
+.link-footer:hover,
+.link-footer:focus {
+    font-weight: var(--text-bold);
+    margin-left: 5px;
+}
+

@@ -111,3 +111,85 @@
     color: var(--logo-color);
 
 }
+
+// logo
+.logo {
+    position: absolute;
+    top: 46px;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: baseline;
+    }
+
+    text-decoration: none;
+
+    color: var(--logo-color);
+
+    cursor: pointer;
+}
+
+.logo__icon {
+    @media screen and (min-width: 768px) {
+        margin-right: 10px;
+    }
+}
+
+.logo__name {
+    @media screen and (max-width: (768px - 1)) {
+        display: none;
+    }
+
+    font-family: var(--main-font);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+
+    color: var(--primary-white-color);
+}
+
+// side-nav
+
+.site-nav {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-bottom: 40px;
+
+    font-family: var(--main-font);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    text-transform: uppercase;
+
+    color: var(--primary-white-color);
+}
+
+.site-nav__item {
+    &:first-child {
+        margin-right: 39px;
+    }
+}
+
+.site-nav__link {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.site-nav__link--current-page {
+    position: relative;
+
+    &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+
+        height: 3px;
+        width: 100%;
+
+        background-color: var(--brand-orange-color);
+    }
+}
