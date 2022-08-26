@@ -1,8 +1,14 @@
 //BASE
+@import './base/base';
+@import './base/fonts';
 
 //COMPONENTS
+@import './components/footer';
+@import './components/header-main';
+@import './components/header-library';
 
 //LAYOUT
-@import './layout/header';
 
-
+//UTILS
+@import './utils/variables';
+@import './utils/visually-hidden';

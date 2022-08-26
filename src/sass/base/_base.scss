@@ -17,6 +17,12 @@ img {
     height: auto;
 }
 
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    transition: all 250ms ease-in-out;
+}
+
 input,
 button,
 textarea,
@@ -47,8 +53,4 @@ a {
 button {
     border: none;
     background-color: transparent;
-}
-
-main {
-    position: relative;
 }

@@ -1,0 +1,44 @@
+<div class="">
+  <header class="header-bg">
+    <div class="container">
+      <div class="header-section">
+        <a class="navigation__logo logo">
+          <img class="logo__icon" src="/src/images/film.svg" alt="filmoteka" />
+
+          <span class="logo__name">Filmoteka</span>
+        </a>
+        <nav class="navigation">
+          <ul class="side-nav">
+            <li class="side-nav__item">
+              <a
+                href=""
+                class="side-nav__link side-nav__link--current-page home"
+                >Home</a
+              >
+            </li>
+            <li class="side-nav__item">
+              <a href="library.html" class="side-nav__link library"
+                >My library</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="query"
+            autocomplete="off"
+            placeholder="Movie search"
+            class="search-field"
+          />
+          <button type="submit" class="search-btn">
+            <svg class="search-icon" width="12" height="12">
+              <use href="./images/loupe.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+</div>
