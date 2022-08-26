@@ -18,6 +18,7 @@
     "url": "https://github.com/Yefimkin/Filmoteka-project"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "axios": "^0.27.2",
     "basiclightbox": "^5.0.4",
     "lodash.debounce": "^4.0.8",

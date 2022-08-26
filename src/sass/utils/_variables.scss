@@ -1,48 +1,18 @@
-// :root {
-//     // Color
-//     --primary-white-color: #ffffff;
-//     --brand-orange-color: #ff6b08;
-//     --text-color: #000000;
-//     --logo-color: #818181;
-//     --notification-red-color: #ff001b;
-//     --footer-bg-color: #f7f7f7;
-//     // Shadow
-//     --btn-active-shadow: 0px 10px 30px rgba(255, 107, 1, 0.6);
-//     --btn-hover-shadow: drop-shadow(0px 10px 30px rgba(255, 107, 1, 0.6));
-//     // Fonts
-//     --main-font: 'Roboto', sans-serif;
-//     //Transition
-//     --duration: 250ms;
-//     --timing-function: linear;
-// }
-
-$mobile: 320px;
-$tablet: 768px;
-$desktop: 1024px;
-
-// text colors
-$white: #ffffff;
-$dark: #000000;
-$textColor: #545454;
-$accentColor: #ff6b08;
-$svgColor: #818181;
-$warningColor: #ff001b;
-
-// fonts
-$mainFont: 'Roboto', sans-serif;
-
-// mixins for transitions
-
-@mixin transition($property,
-    $time: 250ms,
-    $timingFunction: cubic-bezier(0.4, 0, 0.2, 1)) {
-    transition: $property $time $timingFunction;
-}
-
-@mixin twoTransitions($propertyI,
-    $propertyII,
-    $time: 250ms,
-    $timingFunction: cubic-bezier(0.4, 0, 0.2, 1)) {
-    transition: $propertyI $time $timingFunction,
-        $propertyII $time $timingFunction;
+:root {
+    // Color
+    --primary-white-color: #ffffff;
+    --brand-orange-color: #ff6b08;
+    --text-color: #000000;
+    --logo-color: #818181;
+    --notification-red-color: #ff001b;
+    --footer-bg-color: #f7f7f7;
+    // Shadow
+    --btn-active-shadow: 0px 10px 30px rgba(255, 107, 1, 0.6);
+    --btn-hover-shadow: drop-shadow(0px 10px 30px rgba(255, 107, 1, 0.6));
+    // Fonts
+    --main-font: 'Roboto', sans-serif;
+    //Transition
+    --duration: 250ms;
+    --timing-function: linear;
+    
 }
