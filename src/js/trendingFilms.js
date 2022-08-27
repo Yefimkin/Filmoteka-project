@@ -9,8 +9,9 @@ const filmApiService = new FilmApiService();
 async function showTrandingFilms() {
     filmApiService.resetPage();
 
+    const genresArr = await filmApiService.fetchGenres();
     const responce = await filmApiService.fetchTrending();
-    const content = generateCards(responce.results);
+    const content = generateCards(responce.results, genresArr.genres);
     refs.filmsList.insertAdjacentHTML('beforeend', content)
 }
 
