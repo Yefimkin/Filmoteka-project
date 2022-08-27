@@ -12,9 +12,9 @@ async function onSubmitForm(e) {
     e.preventDefault();
 
     filmApiService.query = e.target.query.value;
-    const responce = await filmApiService.fetchMovies();
-    console.log(responce);
+    const moviesArr = await filmApiService.fetchMovies();
+    console.log(moviesArr);
 
-    const responce1 = await filmApiService.fetchGenres();
-    console.log(responce1.genres)
+    const genresArr = await filmApiService.fetchGenres();
+    console.log(genresArr.genres)
 }
