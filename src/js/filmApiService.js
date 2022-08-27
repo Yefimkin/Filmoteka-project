@@ -1,7 +1,7 @@
 import axios from "axios";
 
-BASE_URL = "https://api.themoviedb.org/3";
-API_KEY = "api_key=5f364d2fc6b25c805674b50a1c63d59e";
+const BASE_URL = "https://api.themoviedb.org/3";
+const API_KEY = "api_key=5f364d2fc6b25c805674b50a1c63d59e";
 
 export class FilmApiService {
     constructor() {
