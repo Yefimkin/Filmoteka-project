@@ -1,4 +1,5 @@
 import { FilmApiService } from "./filmApiService";
+import { removeLoader, startLoader } from "./loader";
 import generateCards from "./renderCards";
 import { paginationProp, initPagination } from "./pagePagination";
 
@@ -8,11 +9,13 @@ const refs = {
 const filmApiService = new FilmApiService();
 
 async function showTrandingFilms() {
+    
+    startLoader()
     filmApiService.resetPage();
 
     const responceGenres = await filmApiService.fetchGenres();
     const responceTrending = await filmApiService.fetchTrending();
-    const genresArray = responceGenres.genres
+    const genresArray = responceGenres.genres;
     const filmsArray = responceTrending.results;
     const { page, total_results } = responceTrending;
 
@@ -25,6 +28,7 @@ async function showTrandingFilms() {
     initPagination(paginationProp);
     const content = generateCards(filmsArray, genresArray);
     refs.filmsList.insertAdjacentHTML('beforeend', content);
+    removeLoader()
 }
 
 showTrandingFilms();
