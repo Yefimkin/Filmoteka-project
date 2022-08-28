@@ -1,5 +1,5 @@
 .films {
-    margin-bottom: 160px;
+    margin: 58px 0 160px 0;
 }
 
 .films-list {
@@ -7,24 +7,22 @@
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 16px;
-    list-style: none;
-    padding: 0;
-    margin-top: 20;
+    
 }
 
 .films-list__item {
     width: calc((100% - 32px) / 3);
+    
 }
 
 .films-list__img {
-    max-width: 395px;
-    max-height: 550px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .films-list__description {
-    width: 100%;
     margin-bottom: 32px;
+    text-align: center;
 }
 
 @media screen and (max-width:767px) {
@@ -39,18 +37,6 @@
         flex-wrap: wrap;
         column-gap: 16px;
         list-style: none;
-        padding: 0;
-    }
-}
-
-@media screen and (max-width:1279px) {
-    .films-list__item {
-        width: calc((100% - 32px) / 2);
-    }
-
-    .films-list__img {
-        max-width: 336px;
-        max-height: 400px;
     }
 }
 
