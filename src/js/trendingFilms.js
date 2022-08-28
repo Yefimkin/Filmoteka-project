@@ -10,7 +10,7 @@ const filmApiService = new FilmApiService();
 
 async function showTrandingFilms() {
     
-    startLoader()
+    startLoader();
     filmApiService.resetPage();
 
     const responceGenres = await filmApiService.fetchGenres();
@@ -22,13 +22,13 @@ async function showTrandingFilms() {
     // properties for pagination
     paginationProp.page = page;
     paginationProp.totalItems = total_results;
-    console.log(filmsArray)
+    paginationProp.searchingType = 'trendingMovies';
 
     // init pagination
     initPagination(paginationProp);
-    const content = generateCards(filmsArray, genresArray);
-    refs.filmsList.insertAdjacentHTML('beforeend', content);
-    removeLoader()
+    const moviesList = generateCards(filmsArray, genresArray);
+    refs.filmsList.insertAdjacentHTML('beforeend', moviesList);
+    removeLoader();
 }
 
 showTrandingFilms();
