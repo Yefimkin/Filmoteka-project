@@ -43,7 +43,7 @@
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1279px) {
     .films-list__item {
         width: calc((100% - 32px) / 2);
     }
@@ -54,7 +54,7 @@
     }
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1280px) {
     .films-list__item {
         width: calc((100% - 16px) / 2);
     }
