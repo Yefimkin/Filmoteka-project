@@ -1,11 +1,14 @@
 //BASE
 @import './base/base';
 @import './base/fonts';
+@import './base/container';
 
 //COMPONENTS
-@import './components/footer';
 @import './components/header-main';
 @import './components/header-library';
+@import './components/film-cards';
+@import './components/modal';
+@import './components/footer';
 @import './components/button-container';
 //LAYOUT
 

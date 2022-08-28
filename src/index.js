@@ -4,3 +4,4 @@ import './js/_button-container';
 import './js/filmApiService';
 import './js/searchingMovies';
 import './js/trendingFilms';
+
