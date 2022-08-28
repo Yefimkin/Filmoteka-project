@@ -30,7 +30,7 @@ function initPagination({
         itemsPerPage: 20,
         visiblePages: 5,
         page,
-        centerAlign: false,
+        centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
         template: {
@@ -59,6 +59,7 @@ function initPagination({
         
         if (searchingType === 'searchingMovies') {
             try {
+                console.log(filmApiService.page)
                 startLoader();
                 filmApiService.query = searchingQuery;
                 const responceMovies = await filmApiService.fetchMovies();
@@ -72,14 +73,15 @@ function initPagination({
                 }, 500);
                 scrollToTop();
             } catch (error) {
-                console.log('fetchMovies:', error);
-                removeLoader();
+                console.log(error);
             }
             
         }
 
         if (searchingType === 'trendingMovies') {
             try {
+                console.log(filmApiService.page)
+                startLoader();
                 const responceTrending = await filmApiService.fetchTrending();
                 const responceGenres = await filmApiService.fetchGenres();
                 const filmsArray = responceTrending.results;

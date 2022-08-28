@@ -5,7 +5,6 @@
 
 body,
 html {
-  height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -87,16 +86,12 @@ button {
     padding-left: 76px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .container {
-    width: 1024px;
+    width: 1280px;
     padding-right: 71px;
     padding-left: 71px;
   }
-}
-
-.header-section {
-  padding-top: 58px;
 }
 
 .header-bg {
@@ -106,8 +101,9 @@ button {
   min-height: 230px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("/src/images/header-home-mobile.jpg");
   background-color: #000000;
-  background-position: center;
+  padding-top: 48px;
   background-repeat: no-repeat;
+  background-position: 50% 50%;
   background-size: cover;
 }
 @media screen and (max-width: 767px) and (min-device-pixel-ratio: 2), screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 767px) and (min-resolution: 192dpi), screen and (max-width: 767px) and (min-resolution: 2dppx) {
@@ -118,6 +114,7 @@ button {
 @media screen and (min-width: 768px) {
   .header-bg {
     max-width: 100%;
+    background-position: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("/src/images/header-home-tablet.jpg");
   }
 }
@@ -138,8 +135,18 @@ button {
   }
 }
 
-.search-form {
+.header-search {
   position: relative;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .header-search {
+    width: 336px;
+  }
+}
+
+.search-form {
+  display: flex;
   text-align: center;
 }
 
@@ -149,7 +156,7 @@ button {
   line-height: 1.14;
   background-color: transparent;
   border: transparent;
-  border-bottom: 1px solid var(--logo-color);
+  border-bottom: 1px solid var(--secondary-color);
   font-family: var(--main-font);
   color: var(--primary-white-color);
 }
@@ -158,27 +165,9 @@ button {
     width: 336px;
   }
 }
-.search-field::-moz-placeholder {
-  color: var(--primary-white-color);
-}
-.search-field:-ms-input-placeholder {
-  color: var(--primary-white-color);
-}
-.search-field::placeholder {
-  color: var(--primary-white-color);
-}
 .search-field:focus {
   outline: none;
   border-bottom: 1px solid var(--brand-orange-color);
-}
-.search-field:focus::-moz-placeholder {
-  color: var(--brand-orange-color);
-}
-.search-field:focus:-ms-input-placeholder {
-  color: var(--brand-orange-color);
-}
-.search-field:focus::placeholder {
-  color: var(--brand-orange-color);
 }
 
 .search-btn {
@@ -187,7 +176,7 @@ button {
   padding: 0;
   background-color: transparent;
   border: transparent;
-  color: var(--logo-color);
+  color: var(--secondary-color);
 }
 @media screen and (min-width: 768px) {
   .search-btn {
@@ -204,7 +193,7 @@ button {
   position: absolute;
   top: 46px;
   text-decoration: none;
-  color: var(--logo-color);
+  color: var(--secondary-color);
   cursor: pointer;
 }
 @media screen and (min-width: 768px) {
@@ -326,6 +315,7 @@ button {
        column-gap: 16px;
   list-style: none;
   padding: 0;
+  margin-top: 20;
 }
 
 .films-list__item {
@@ -334,8 +324,8 @@ button {
 
 .films-list__img {
   max-width: 395px;
-  max-height: 574px;
-  border-radius: 5px;
+  max-height: 550px;
+  border-radius: 10px;
 }
 
 .films-list__description {
@@ -343,7 +333,7 @@ button {
   margin-bottom: 32px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
   .films-list__img {
     max-width: 280px;
     max-height: 402px;
@@ -358,22 +348,22 @@ button {
     padding: 0;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
   .films-list__item {
     width: calc((100% - 32px) / 2);
   }
   .films-list__img {
     max-width: 336px;
-    max-height: 455px;
+    max-height: 400px;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .films-list__item {
     width: calc((100% - 16px) / 2);
   }
   .films-list__img {
     max-width: 336px;
-    max-height: 455px;
+    max-height: 420px;
   }
 }
 p,
@@ -824,7 +814,7 @@ footer {
   --primary-white-color: #ffffff;
   --brand-orange-color: #ff6b08;
   --text-color: #000000;
-  --logo-color: #818181;
+  --secondary-color: #818181;
   --notification-red-color: #ff001b;
   --btn-active-shadow: 0px 10px 30px rgba(255, 107, 1, 0.6);
   --btn-hover-shadow: drop-shadow(0px 10px 30px rgba(255, 107, 1, 0.6));
