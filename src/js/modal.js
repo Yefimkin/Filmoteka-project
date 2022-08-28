@@ -1,5 +1,18 @@
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal">
+import * as basicLightbox from 'basiclightbox';
+
+const refs = {
+  filmsList: document.querySelector('.films-list'),
+};
+
+refs.filmsList.addEventListener('click', onClickFilm);
+
+async function onClickFilm(e) {
+  if (e.target.tagName !== 'IMG') return;
+
+  const instance = basicLightbox.create(
+    `
+        <div class="modal">
+           <div class="modal">
     <div class="modal-image">
       <img src="./images/movie-img.jpg" alt="Poster for the movie" />
     </div>
@@ -55,3 +68,16 @@
     </button>
   </div>
 </div>
+
+            <a>Close</a>
+        </div>
+    `,
+    {
+      onShow: instance => {
+        instance.element().querySelector('a').onclick = instance.close;
+      },
+    }
+  );
+
+  instance.show();
+}
