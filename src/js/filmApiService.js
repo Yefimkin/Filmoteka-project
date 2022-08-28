@@ -18,7 +18,7 @@ export class FilmApiService {
     }
 
     async fetchTrending() {
-        const url = `${BASE_URL}/trending/all/day?${API_KEY}&page=${this.page}`;
+        const url = `${BASE_URL}/trending/movie/day?${API_KEY}&page=${this.page}`;
         const responce = await axios.get(url);
         return responce.data;
     }

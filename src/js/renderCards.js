@@ -4,13 +4,13 @@ function createCard(item, genre) {
     const url = "https://image.tmdb.org/t/p/w500/";
     const { poster_path, id, title, original_title, original_name, release_date, first_air_date} = item;
 
- let moviePoster = `${url}${poster_path}`;
+    let moviePoster = `${url}${poster_path}`;
    
     if (!poster_path) {
         moviePoster = posterNotFound;
     }
 
-    return `<li class="films-list__item data-id=${id}">
+    return `<li class="films-list__item" data-id=${id}>
     <img class="films-list__img" src="${moviePoster}" alt="" loading="lazy">
     <div class="films-list__description">
         <p class="films-list__title">${title || original_title || original_name}</p>
