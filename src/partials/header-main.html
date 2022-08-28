@@ -1,41 +1,43 @@
-<div>
-  <header class="header-bg">
-    <div class="container">
-      <div class="header-section">
-        <a class="navigation__logo logo">
-          <img class="logo__icon" src="/src/images/film.svg" alt="filmoteka" />
-          <span class="logo__name">Filmoteka</span>
-        </a>
-        <nav class="navigation">
-          <ul class="site-nav">
-            <li class="site-nav__item">
-              <a
-                href=""
-                class="site-nav__link site-nav__link--current-page home"
-                >Home</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a href="library.html" class="side-nav__link library"
-                >My library</a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <form class="search-form" id="search-form">
-          <input
-            type="text"
-            name="query"
-            autocomplete="off"
-            placeholder="Movie search"
-            class="search-field"
-          />
-          <button type="submit" class="search-btn">
-            <img class="search-icon" src="/src/images/loupe.svg" alt="loupe" />
-          </button>
-        </form>
-      </div>
+<header class="header-bg">
+  <div class="container">
+    <div class="header-section">
+      <a class="logo">
+        <img class="logo__icon" src="/src/images/film.svg" alt="filmoteka" />
+        <span class="logo__name">Filmoteka</span>
+      </a>
+      <nav class="navigation">
+        <ul class="site-nav">
+          <li class="site-nav__item">
+            <a href="" class="site-nav__link site-nav__link--current-page home"
+              >Home</a
+            >
+          </li>
+          <li class="site-nav__item">
+            <a href="library.html" class="side-nav__link library">My library</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-  </header>
-</div>
+
+    <div class="header-search">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Movie search"
+          class="search-field"
+        />
+        <button type="submit" class="search-btn">
+          <img
+            class="search-icon"
+            src="/src/images/loupe.svg"
+            alt="loupe"
+            width="15"
+            height="15"
+          />
+        </button>
+      </form>
+    </div>
+  </div>
+</header>

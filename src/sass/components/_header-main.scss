@@ -1,31 +1,29 @@
-.header-section {
-    padding-top: 58px;
-}
-
 .header-bg {
     margin-left: auto;
-        margin-right: auto;
+    margin-right: auto;
     
-        max-width: 100%;
-        min-height: 230px;
+    max-width: 100%;
+    min-height: 230px;
     
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/src/images/header-home-mobile.jpg');
-        background-color: #000000;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('/src/images/header-home-mobile.jpg');
+    background-color: #000000;
     
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+    padding-top: 48px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
     
-        @media screen and (max-width: (768px - 1)) and (min-device-pixel-ratio: 2),
-        screen and (max-width: (768px - 1)) and (min-resolution: 192dpi),
-        screen and (max-width: (768px - 1)) and (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url('/src/images/header-home-mobile-2x.jpg');
-        }
+    @media screen and (max-width: (768px - 1)) and (min-device-pixel-ratio: 2),
+    screen and (max-width: (768px - 1)) and (min-resolution: 192dpi),
+    screen and (max-width: (768px - 1)) and (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('/src/images/header-home-mobile-2x.jpg');
+    }
     
         @media screen and (min-width: 768px) {
             max-width: 100%;
+            background-position: 100%;
     
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/src/images/header-home-tablet.jpg');
@@ -53,9 +51,20 @@
 
 }
 
-.search-form {
+//search form
+
+.header-search{
     position: relative;
+    margin: 0 auto;
     
+    @media screen and (min-width: 768px) {
+        width: 336px;
+    }
+    
+}
+
+.search-form {
+    display: flex;
     text-align: center;
 }
 
@@ -70,23 +79,19 @@
     }
         background-color: transparent;
         border: transparent;
-        border-bottom: 1px solid var(--logo-color);
+        border-bottom: 1px solid var(--secondary-color);
     
         font-family: var(--main-font);
     
         color: var(--primary-white-color);
         
         &::placeholder {
-            color: var(--primary-white-color);
+            // color: var(--primary-white-color);
         }
     
         &:focus {
             outline: none;
             border-bottom: 1px solid var(--brand-orange-color);
-    
-            &::placeholder {
-                color: var(--brand-orange-color);
-            }
         }
 }
 
@@ -108,7 +113,7 @@
     background-color: transparent;
     border: transparent;
 
-    color: var(--logo-color);
+    color: var(--secondary-color);
 
 }
 
@@ -124,7 +129,7 @@
 
     text-decoration: none;
 
-    color: var(--logo-color);
+    color: var(--secondary-color);
 
     cursor: pointer;
 }
@@ -148,7 +153,7 @@
     color: var(--primary-white-color);
 }
 
-// side-nav
+// site-nav
 
 .site-nav {
     display: flex;
