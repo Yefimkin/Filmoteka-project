@@ -7,12 +7,9 @@ import { paginationProp, initPagination } from './pagePagination';
 
 const refs = {
     searchFormEl: document.getElementById("search-form"),
-    inputEl: document.querySelector('input[name="query"]'),
     filmsList: document.querySelector('.films-list'),
 }
-
 const filmApiService = new FilmApiService();
-
 
 
 refs.searchFormEl.addEventListener('submit', onSubmitForm);
@@ -28,24 +25,23 @@ async function onSubmitForm(e) {
         return;
     }    
 
-    const responceMovies = await filmApiService.fetchMovies();
-    const responceGenres = await filmApiService.fetchGenres();
-    const moviesArray = responceMovies.results;
-    const genresArray = responceGenres.genres;
-    const { page, total_results } = responceMovies;
-
-    if (moviesArray.length === 0) {
-        Notify.info('We dont find this movie, please try again');
-        return;
-    }
-
-    // properties for pagination
-    paginationProp.searchingType = 'searchingMovies';
-    paginationProp.page = page;
-    paginationProp.totalItems = total_results;
-    paginationProp.searchingQuery = filmApiService.query;
-
     try {
+        const responceMovies = await filmApiService.fetchMovies();
+        const responceGenres = await filmApiService.fetchGenres();
+        const moviesArray = responceMovies.results;
+        const genresArray = responceGenres.genres;
+        const { page, total_results } = responceMovies;
+    
+        if (moviesArray.length === 0) {
+            Notify.info('We dont find this movie, please try again');
+            return;
+        }
+    
+        // properties for pagination
+        paginationProp.searchingType = 'searchingMovies';
+        paginationProp.page = page;
+        paginationProp.totalItems = total_results;
+        paginationProp.searchingQuery = filmApiService.query;
         startLoader();
         clearMarkup();
         

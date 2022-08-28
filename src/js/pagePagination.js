@@ -10,6 +10,7 @@ const refs = {
 }
 const filmApiService = new FilmApiService();
 
+// paginations properties
 const paginationProp = {
     searchingType: '',
     page: 1,
@@ -17,6 +18,7 @@ const paginationProp = {
     searchingQuery: '',
 };
 
+// init paginations function
 function initPagination({
     searchingType,
     page,
