@@ -6,3 +6,4 @@ import './js/searchingMovies';
 import './js/trendingFilms';
 import './js/pagePagination';
 import './js/renderCards';
+import './js/modal';
