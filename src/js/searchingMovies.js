@@ -48,6 +48,7 @@ async function onSubmitForm(e) {
     }
     catch (error) {
         console.log(error);
+        removeLoader();
     }
 }
 
