@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { FilmApiService } from './filmApiService';
 import generateCards from './renderCards';
+import { removeLoader, startLoader } from './loader';
 
 const refs = {
     filmsList: document.querySelector('.films-list'),
@@ -47,6 +48,9 @@ export function initPagination({
     const pagination = new Pagination(refs.pagination, options);
 
     pagination.on('afterMove', async ({ page }) => {
+        startLoader();
+        scrollToTop();
+
         filmApiService.page = page;
         
         const responceTrending = await filmApiService.fetchTrending();
@@ -54,9 +58,11 @@ export function initPagination({
         const filmsArray = responceTrending.results;
         const genresArray = responceGenres.genres;
         
-        refs.filmsList.innerHTML = generateCards(filmsArray, genresArray);
+        setTimeout(() => {
+            refs.filmsList.innerHTML = generateCards(filmsArray, genresArray);
+            removeLoader();
+        }, 500);
         
-        scrollToTop();
     });
 }
 
