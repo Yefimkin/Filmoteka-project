@@ -1,6 +1,6 @@
 import { FilmApiService } from "./filmApiService";
-import { removeLoader, startLoader } from "./loader";
 import generateCards from "./renderCards";
+import { removeLoader, startLoader } from "./loader";
 import { paginationProp, initPagination } from "./pagePagination";
 
 const refs = {
@@ -10,25 +10,28 @@ const filmApiService = new FilmApiService();
 
 async function showTrandingFilms() {
     
-    startLoader()
+    startLoader();
     filmApiService.resetPage();
 
-    const responceGenres = await filmApiService.fetchGenres();
-    const responceTrending = await filmApiService.fetchTrending();
-    const genresArray = responceGenres.genres;
-    const filmsArray = responceTrending.results;
-    const { page, total_results } = responceTrending;
+    try {        
+        const responceGenres = await filmApiService.fetchGenres();
+        const responceTrending = await filmApiService.fetchTrending();
+        const genresArray = responceGenres.genres;
+        const filmsArray = responceTrending.results;
+        const { page, total_results } = responceTrending;
+        
+        // properties for pagination
+        paginationProp.page = page;
+        paginationProp.totalItems = total_results;
+        paginationProp.searchingType = 'trendingMovies';
 
-    // properties for pagination
-    paginationProp.page = page;
-    paginationProp.totalItems = total_results;
-    console.log(filmsArray)
-
-    // init pagination
-    initPagination(paginationProp);
-    const content = generateCards(filmsArray, genresArray);
-    refs.filmsList.insertAdjacentHTML('beforeend', content);
-    removeLoader()
+        // init pagination
+        initPagination(paginationProp);
+        refs.filmsList.innerHTML = generateCards(filmsArray, genresArray);
+        removeLoader();        
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 showTrandingFilms();

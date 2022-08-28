@@ -10,14 +10,20 @@ const refs = {
 }
 const filmApiService = new FilmApiService();
 
-export const paginationProp = {
+// paginations properties
+const paginationProp = {
+    searchingType: '',
     page: 1,
     totalItems: null,
+    searchingQuery: '',
 };
 
-export function initPagination({
+// init paginations function
+function initPagination({
+    searchingType,
     page,
     totalItems,
+    searchingQuery,
 }) {
     const options = {
         totalItems,
@@ -48,24 +54,51 @@ export function initPagination({
     const pagination = new Pagination(refs.pagination, options);
 
     pagination.on('afterMove', async ({ page }) => {
-        startLoader();
-        scrollToTop();
-
+        
         filmApiService.page = page;
         
-        const responceTrending = await filmApiService.fetchTrending();
-        const responceGenres = await filmApiService.fetchGenres();
-        const filmsArray = responceTrending.results;
-        const genresArray = responceGenres.genres;
-        
-        setTimeout(() => {
-            refs.filmsList.innerHTML = generateCards(filmsArray, genresArray);
-            removeLoader();
-        }, 500);
-        
+        if (searchingType === 'searchingMovies') {
+            try {
+                startLoader();
+                filmApiService.query = searchingQuery;
+                const responceMovies = await filmApiService.fetchMovies();
+                const responceGenres = await filmApiService.fetchGenres();
+                const filmsArray = responceMovies.results;
+                const genresArray = responceGenres.genres;
+                
+                setTimeout(() => {
+                    refs.filmsList.innerHTML = generateCards(filmsArray, genresArray);
+                    removeLoader();
+                }, 500);
+                scrollToTop();
+            } catch (error) {
+                console.log('fetchMovies:', error);
+                removeLoader();
+            }
+            
+        }
+
+        if (searchingType === 'trendingMovies') {
+            try {
+                const responceTrending = await filmApiService.fetchTrending();
+                const responceGenres = await filmApiService.fetchGenres();
+                const filmsArray = responceTrending.results;
+                const genresArray = responceGenres.genres;
+                
+                setTimeout(() => {
+                    refs.filmsList.innerHTML = generateCards(filmsArray, genresArray);
+                    removeLoader();
+                }, 500);
+                scrollToTop();
+            } catch (error) {
+                console.log(error);
+            }
+        }
     });
 }
 
 function scrollToTop() {
     window.scrollTo(0, 0);
 }
+
+export { paginationProp, initPagination };

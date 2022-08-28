@@ -1,17 +1,15 @@
 import { Notify } from 'notiflix';
-import { FilmApiService } from './filmApiService'
+import { FilmApiService } from './filmApiService';
 import generateCards from "./renderCards";
-import { startLoader, removeLoader } from './loader'
+import { startLoader, removeLoader } from './loader';
+import { paginationProp, initPagination } from './pagePagination';
 
 
 const refs = {
-    searchFormEl: document.querySelector("#search-form"),
-    inputEl: document.querySelector('input[name="query"]'),
+    searchFormEl: document.getElementById("search-form"),
     filmsList: document.querySelector('.films-list'),
 }
-
-const filmApiService = new FilmApiService()
-
+const filmApiService = new FilmApiService();
 
 
 refs.searchFormEl.addEventListener('submit', onSubmitForm);
@@ -19,28 +17,36 @@ refs.searchFormEl.addEventListener('submit', onSubmitForm);
 async function onSubmitForm(e) {
     e.preventDefault();
     
-    filmApiService.query = e.target.query.value.trim()
+    filmApiService.query = e.target.query.value.trim();
+    filmApiService.resetPage();
     
-        if (filmApiService.query === '') {
-            Notify.info('Please, enter movie name');
-            return;
+    if (filmApiService.query === '') {
+        Notify.info('Please, enter movie name');
+        return;
     }    
 
-    const findedMovies = await filmApiService.fetchMovies();
-    const genresList = await filmApiService.fetchGenres();
-
-    console.log(findedMovies);
-
-    if (findedMovies.results.length === 0) {
-        Notify.info('We dont find this movie, please try again');
-        return;
-    }
-
     try {
-        startLoader()
+        const responceMovies = await filmApiService.fetchMovies();
+        const responceGenres = await filmApiService.fetchGenres();
+        const moviesArray = responceMovies.results;
+        const genresArray = responceGenres.genres;
+        const { page, total_results } = responceMovies;
+    
+        if (moviesArray.length === 0) {
+            Notify.info('We dont find this movie, please try again');
+            return;
+        }
+    
+        // properties for pagination
+        paginationProp.searchingType = 'searchingMovies';
+        paginationProp.page = page;
+        paginationProp.totalItems = total_results;
+        paginationProp.searchingQuery = filmApiService.query;
+        startLoader();
         clearMarkup();
         
-        const moviesList = generateCards(findedMovies.results, genresList.genres);
+        initPagination(paginationProp);
+        const moviesList = generateCards(moviesArray, genresArray);
         refs.filmsList.insertAdjacentHTML('beforeend', moviesList);
         
         removeLoader();
