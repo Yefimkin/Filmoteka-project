@@ -12,7 +12,7 @@ export class FilmApiService {
     }
 
     async fetchMovies() {
-        const url = `${BASE_URL}/search/movie?${API_KEY}&query=${this.query}&page=${this.page}`;
+        const url = `${BASE_URL}/search/movie?${API_KEY}&query=${this.query}&page=${this.page}&language=en-US`;
         const responce = await axios.get(url);
         return responce.data;
     }
@@ -24,7 +24,7 @@ export class FilmApiService {
     }
 
     async fetchMovieByID() {
-        const url = `${BASE_URL}/movie/${this.ID}?${API_KEY}`;
+        const url = `${BASE_URL}/movie/${this.ID}?${API_KEY}&language=en-US`;
         const responce = await axios.get(url);
         return responce.data;
     }
