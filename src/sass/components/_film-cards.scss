@@ -8,16 +8,19 @@
     flex-wrap: wrap;
     column-gap: 16px;
     
+    
 }
 
 .films-list__item {
     width: calc((100% - 32px) / 3);
+    
     
 }
 
 .films-list__img {
     border-radius: 10px;
     object-fit: cover;
+    
 }
 
 .films-list__description {
