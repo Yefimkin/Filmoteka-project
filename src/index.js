@@ -7,3 +7,4 @@ import './js/trendingFilms';
 import './js/pagePagination';
 import './js/renderCards';
 import './js/modal';
+import './js/footer-modal';
