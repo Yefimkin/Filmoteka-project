@@ -77,8 +77,8 @@ async function onClickFilm(e) {
                         <p class="modal-post__desription__item">${overview}</p>
                     </div>
                     <div class="buttons">
-                        <button class="modal-btn" type="button">add to Watched</button>
-                        <button class="modal-btn" type="button">add to queue</button>
+                        <button class="modal-btn watched" type="button">add to Watched</button>
+                        <button class="modal-btn queue" type="button">add to queue</button>
                     </div>
                 </div>
                 <button type="button" class="modal-close" data-modal-close>
