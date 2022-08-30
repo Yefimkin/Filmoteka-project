@@ -42,9 +42,11 @@ img {
   font-style: normal;
   font-weight: 500;
   width: 280px;
-  height: 940px;
+  max-height: 95vh;
   position: absolute;
-
+  z-index: 999;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -193,6 +195,7 @@ table .votes-value {
     height: 552px;
     padding: 40px 72px 40px 35px;
     display: flex;
+    overflow: hidden;
   }
   .modal-image {
     min-width: 264px;
@@ -200,9 +203,6 @@ table .votes-value {
     padding-bottom: 0;
   }
 
-  .modal-image__el {
-    width: 100%;
-  }
   .modal-post {
     padding-left: 68px;
   }
@@ -228,9 +228,7 @@ table .votes-value {
     min-width: 375px;
     min-height: 478px;
   }
-  .modal-image__el {
-    width: 100%;
-  }
+
   .modal-post {
     padding-left: 16px;
   }
