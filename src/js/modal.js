@@ -110,7 +110,7 @@ async function onClickFilm(e) {
     statusModalBtnWatched();
     statusModalBtnQueue();
     function statusModalBtnWatched() {
-      keyName = 'watched';
+      const keyName = 'watched';
       let isInWatched = checkIdInLocalStorage(keyName, filmID);
       if (isInWatched) {
         refs.modalBtnWatched.textContent = 'remove from watched';
@@ -120,7 +120,7 @@ async function onClickFilm(e) {
     }
 
     function statusModalBtnQueue() {
-      keyName = 'queue';
+      const keyName = 'queue';
       let isInWatched = checkIdInLocalStorage(keyName, filmID);
       if (isInWatched) {
         refs.modalBtnQueue.textContent = 'remove from queue';
@@ -132,7 +132,7 @@ async function onClickFilm(e) {
     refs.modalBtnQueue.addEventListener('click', onModalBtnQueueClick);
 
     function onModalBtnWatchedClick() {
-      keyName = 'watched';
+      const keyName = 'watched';
       let isInWatched = checkIdInLocalStorage(keyName, filmID);
       if (isInWatched) {
         removeIdFromLocalStorage(keyName, filmID);
@@ -144,7 +144,7 @@ async function onClickFilm(e) {
     }
 
     function onModalBtnQueueClick() {
-      keyName = 'queue';
+      const keyName = 'queue';
       let isInQueue = checkIdInLocalStorage(keyName, filmID);
       if (isInQueue) {
         removeIdFromLocalStorage(keyName, filmID);
