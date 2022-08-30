@@ -16,6 +16,7 @@ async function showTrandingFilms() {
     try {        
         const responceGenres = await filmApiService.fetchGenres();
         const responceTrending = await filmApiService.fetchTrending();
+        console.log(responceTrending)
         const genresArray = responceGenres.genres;
         const filmsArray = responceTrending.results;
         const { page, total_results } = responceTrending;
