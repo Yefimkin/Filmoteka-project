@@ -14,7 +14,7 @@ const filmApiService = new FilmApiService();
 
 refs.filmsList.addEventListener('click', onClickFilm);
 
-async function onClickFilm(e) {
+export default async function onClickFilm(e) {
   if (e.target.tagName !== 'IMG') return;
 
   const filmID = e.target.parentElement.dataset.id;
@@ -112,6 +112,7 @@ async function onClickFilm(e) {
     function statusModalBtnWatched() {
       const keyName = 'watched';
       let isInWatched = checkIdInLocalStorage(keyName, filmID);
+      console.log(isInWatched)
       if (isInWatched) {
         refs.modalBtnWatched.textContent = 'remove from watched';
       } else {
