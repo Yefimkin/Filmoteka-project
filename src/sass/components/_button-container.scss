@@ -82,15 +82,13 @@
 }
 
 .centrBtn {
-    // display: block;
-    // margin: 0 auto;
     display: flex;
     margin: auto;
     align-items: center;
     justify-content: center;
 
     &:not(:last-child) {
-        margin-right: auto; //Анна: выровняла кнопку по центру в мобильной версии
+        margin-right: auto;
     }
 }
 
