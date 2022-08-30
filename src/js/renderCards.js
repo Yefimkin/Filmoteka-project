@@ -19,7 +19,7 @@ function createCard(item, genre) {
     <img class="films-list__img" src="${moviePoster}" alt="" loading="lazy">
     <div class="films-list__description">
         <p class="films-list__title">${title || original_title || original_name}</p>
-        <p class="films-list__genres">${genre} | (${noReleaseDate || (release_date || first_air_date).slice(0,4)})</p>
+        <p class="films-list__genres">${genre} (${noReleaseDate || (release_date || first_air_date).slice(0,4)})</p>
     </div>
     </li>`
 }
