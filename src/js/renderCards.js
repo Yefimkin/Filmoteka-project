@@ -31,7 +31,7 @@ export default function generateCards(films, genres) {
 }
 
 function generateGenres(dataFilm, allGenres) {
-    const filmsGenresNum = dataFilm.genre_ids;
+    const filmsGenresNum = dataFilm.genre_ids || generateGenresForLib(dataFilm.genres);
 
     if (filmsGenresNum) {
         const filmsGenresName = allGenres
@@ -45,4 +45,8 @@ function generateGenres(dataFilm, allGenres) {
         }
     } else return "No genre";
 
+}
+
+function generateGenresForLib(dataFilm) {
+    return dataFilm.map(genre => genre.id);
 }

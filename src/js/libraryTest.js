@@ -1,13 +1,8 @@
 import { FilmApiService } from "./filmApiService";
-import { readLocalStorage, checkIdInLocalStorage } from "./localStorage";
+import { readLocalStorage } from "./localStorage";
 import generateCards from "./renderCards";
 import onClickFilm from "./modal";
-
-
-//   readLocalStorage,
-//   checkIdInLocalStorage,
-//   addIdToLocalStorage,
-//   removeIdFromLocalStorage,
+import { Notify } from "notiflix";
 
 const refs = {
     filmList: document.querySelector('.films-list'),
@@ -29,22 +24,20 @@ async function showWatchedFilms() {
     refs.filmList.innerHTML = '';
 
     if (!watchedFilms || watchedFilms.length === 0) {
-        console.log("You have not watched films");
+        Notify.info('Your film list is empty');
         return;
     }
 
     const arrayOfPromises = watchedFilms.map(async film => {
-        console.log(film)
         filmApiService.ID = film;
-        const response = await filmApiService.fetchMovieByID();
-        return response;
+        return await filmApiService.fetchMovieByID();
     })
 
-    const users = await Promise.all(arrayOfPromises);
+    const arrayOfFilms = await Promise.all(arrayOfPromises);
 
-    const responceGenres = await filmApiService.fetchGenres()
-    const genresArray = responceGenres.genres;
-    refs.filmList.innerHTML = generateCards(users, genresArray);
+    const responseGenres = await filmApiService.fetchGenres()
+    const genresArray = responseGenres.genres;
+    refs.filmList.innerHTML = generateCards(arrayOfFilms, genresArray);
 }
 
 showWatchedFilms();
@@ -54,20 +47,19 @@ async function showQueueFilms() {
     refs.filmList.innerHTML = '';
 
     if (!watchedFilms || watchedFilms.length === 0) {
-        console.log("You have not watched films");
+        Notify.info("Your film list is empty");
         return;
     }
 
     const arrayOfPromises = watchedFilms.map(async film => {
         filmApiService.ID = film;
-        const response = await filmApiService.fetchMovieByID();
-        return response;
+        return await filmApiService.fetchMovieByID();
     })
 
-    const users = await Promise.all(arrayOfPromises);
+    const arrayOfFilms = await Promise.all(arrayOfPromises);
 
-    const responceGenres = await filmApiService.fetchGenres();
-    const genresArray = responceGenres.genres;
-    refs.filmList.innerHTML = generateCards(users, genresArray);
+    const responseGenres = await filmApiService.fetchGenres();
+    const genresArray = responseGenres.genres;
+    refs.filmList.innerHTML = generateCards(arrayOfFilms, genresArray);
 
 }
