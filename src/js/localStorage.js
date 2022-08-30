@@ -1,5 +1,3 @@
-// const idMovie = document.querySelector('.modal').dataset.id; // =  idMovie
-
 function readLocalStorage(keyName) {
   let arrIdMovie = [];
   let result;
@@ -11,17 +9,17 @@ function readLocalStorage(keyName) {
   if (result) {
     arrIdMovie = result;
   }
-  console.log(arrIdMovie);
+
   return arrIdMovie;
 }
 
-///////////////////////// Проверяет совпадения в Local Storage // возвращает true/false
-function checkIdInLocalStorage(keyName, idMovie) {
-  return readLocalStorage(keyName).includes(idMovie);
+///////////////////////// Проверяет совпадения в Local Storage true/false // возвращает [filmID]
+function checkIdInLocalStorage(keyName, filmID) {
+  return readLocalStorage(keyName).includes(filmID);
 }
 
-////////////////////////////////// Добовляет в Local Storage
-function addIdToLocalStorage(keyName, idMovie) {
+////////////////////////////////// Добавляет в Local Storage
+function addIdToLocalStorage(keyName, filmID) {
   let arrayId = [];
   let result;
   try {
@@ -30,14 +28,21 @@ function addIdToLocalStorage(keyName, idMovie) {
   if (result) {
     arrayId = result;
   }
-  arrayId.push(idMovie);
+  arrayId.push(filmID);
   localStorage.setItem(keyName, JSON.stringify(arrayId));
 }
 
 ////////////////////////////////// Удаляет из Local Storage
-function removeIdFromLocalStorage(keyName, idMovie) {
+function removeIdFromLocalStorage(keyName, filmID) {
   localStorage.setItem(
     keyName,
-    JSON.stringify(readLocalStorage(keyName).filter(item => item !== idMovie))
+    JSON.stringify(readLocalStorage(keyName).filter(item => item !== filmID))
   );
 }
+
+export {
+  readLocalStorage,
+  checkIdInLocalStorage,
+  addIdToLocalStorage,
+  removeIdFromLocalStorage,
+};
