@@ -53,6 +53,7 @@ a {
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 footer {
@@ -65,4 +66,11 @@ table .vote-value {
     padding: 1px 10px;
     border-radius: 6px;
     color: #000000;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
 }

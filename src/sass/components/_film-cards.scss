@@ -4,28 +4,32 @@
 
 .films-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     column-gap: 16px;
-    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .films-list__item {
     width: calc((100% - 32px) / 3);
-    
+
 }
 
 .films-list__img {
     border-radius: 10px;
-    object-fit: contain;
-    
+    object-fit: cover;
+    transition: scale 150ms ease-in;
+    cursor: pointer;
+
+    &:hover {
+        scale: 1.03;
+    }
 }
 
 .films-list__description {
-    margin-top: 32px;
-    margin-bottom: 32px;
-    text-align: center;
-    
+    margin-top: 10px;
+    margin-bottom: 25px;
+
 }
 
 @media screen and (max-width:767px) {
@@ -51,4 +55,12 @@
         max-width: 336px;
         max-height: 420px;
     }
+}
+
+.films-list__title {
+    text-transform: uppercase;
+}
+
+.films-list__genres {
+    color: rgba(255, 107, 8, 1);
 }
