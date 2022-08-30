@@ -1,5 +1,11 @@
 import * as basicLightbox from 'basiclightbox';
 import { FilmApiService } from './filmApiService';
+import {
+  readLocalStorage,
+  checkIdInLocalStorage,
+  addIdToLocalStorage,
+  removeIdFromLocalStorage,
+} from './localStorage';
 
 const refs = {
   filmsList: document.querySelector('.films-list'),
@@ -77,8 +83,8 @@ async function onClickFilm(e) {
                         <p class="modal-post__desription__item">${overview}</p>
                     </div>
                     <div class="buttons">
-                        <button class="modal-btn" type="button">add to Watched</button>
-                        <button class="modal-btn" type="button">add to queue</button>
+                        <button class="modal-btn watched" type="button">add to Watched</button>
+                        <button class="modal-btn queue" type="button">add to queue</button>
                     </div>
                 </div>
                 <button type="button" class="modal-close" data-modal-close>
@@ -95,6 +101,60 @@ async function onClickFilm(e) {
     );
 
     modalFilm.show();
+    // ////////////////////////////////////////////////// My code Denys Zabolotskyi
+    const refs = {
+      modalBtnWatched: document.querySelector('.watched'),
+      modalBtnQueue: document.querySelector('.queue'),
+    };
+
+    statusModalBtnWatched();
+    statusModalBtnQueue();
+    function statusModalBtnWatched() {
+      keyName = 'watched';
+      let isInWatched = checkIdInLocalStorage(keyName, filmID);
+      if (isInWatched) {
+        refs.modalBtnWatched.textContent = 'remove from watched';
+      } else {
+        refs.modalBtnWatched.textContent = 'add to watched';
+      }
+    }
+
+    function statusModalBtnQueue() {
+      keyName = 'queue';
+      let isInWatched = checkIdInLocalStorage(keyName, filmID);
+      if (isInWatched) {
+        refs.modalBtnQueue.textContent = 'remove from queue';
+      } else {
+        refs.modalBtnQueue.textContent = 'add to queue';
+      }
+    }
+    refs.modalBtnWatched.addEventListener('click', onModalBtnWatchedClick);
+    refs.modalBtnQueue.addEventListener('click', onModalBtnQueueClick);
+
+    function onModalBtnWatchedClick() {
+      keyName = 'watched';
+      let isInWatched = checkIdInLocalStorage(keyName, filmID);
+      if (isInWatched) {
+        removeIdFromLocalStorage(keyName, filmID);
+        refs.modalBtnWatched.textContent = `add to ${keyName}`;
+      } else {
+        addIdToLocalStorage(keyName, filmID);
+        refs.modalBtnWatched.textContent = `remove from ${keyName}`;
+      }
+    }
+
+    function onModalBtnQueueClick() {
+      keyName = 'queue';
+      let isInQueue = checkIdInLocalStorage(keyName, filmID);
+      if (isInQueue) {
+        removeIdFromLocalStorage(keyName, filmID);
+        refs.modalBtnQueue.textContent = `add to ${keyName}`;
+      } else {
+        addIdToLocalStorage(keyName, filmID);
+        refs.modalBtnQueue.textContent = `remove from ${keyName}`;
+      }
+    }
+    // ////////////////////////////////////////////////// My code Denys Zabolotskyi
   } catch (error) {
     console.log(error);
   }
