@@ -1,7 +1,4 @@
-.header-bg {
-    margin-left: auto;
-    margin-right: auto;
-    
+.header-bg {    
     max-width: 100%;
     min-height: 230px;
     
@@ -11,7 +8,7 @@
     
     padding-top: 48px;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: center;
     background-size: cover;
     
     @media screen and (max-width: (768px - 1)) and (min-device-pixel-ratio: 2),
@@ -21,10 +18,7 @@
         url('/src/images/header-home-mobile-2x.jpg');
     }
     
-        @media screen and (min-width: 768px) {
-            max-width: 100%;
-            background-position: 100%;
-    
+        @media screen and (min-width: 768px) {    
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/src/images/header-home-tablet.jpg');
     
@@ -37,7 +31,6 @@
         }
     
         @media screen and (min-width: 1280px) {
-            max-width: 100%;
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/src/images/header-home-desktop.jpg');
     
@@ -94,9 +87,7 @@
 }
 
 .search-btn {
-    
-    // top: 0;
-    // right: 0;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
         right: 142px;
