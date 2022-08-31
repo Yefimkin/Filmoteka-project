@@ -102,20 +102,20 @@
 }
 
 .modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
   width: 110px;
   height: 44px;
+  padding: 14px 8px;
   font-size: 12px;
   line-height: 1.33;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
   background-color: #fff;
   color: #000000;
-  padding: 14px 8px;
   border: 1px solid #000000;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .modal-btn:hover,
@@ -127,12 +127,16 @@
   border: none;
 }
 
-@media screen and (max-width: 1199px) {
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-  }
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }
+// @media screen and (max-width: 1199px) {
+//   .buttons {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
 
 .modal-close {
   display: flex;
