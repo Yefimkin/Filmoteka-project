@@ -96,13 +96,21 @@ export default async function onClickFilm(e) {
                 </button>
             </div>`,
       {
-        onShow: instance => {
-          instance.element().querySelector('.modal-close').onclick = instance.close;
+        onShow: (inst) => {
+          addEventListener("keydown", checkeTheEscapeButtonToExit);
+          inst.element().querySelector('.modal-close').onclick = inst.close;
         },
+        onClose: () => removeEventListener("keydown", checkeTheEscapeButtonToExit)
       }
     );
 
     modalFilm.show();
+    
+    function checkeTheEscapeButtonToExit(event) {
+      console.log(event)
+      if (event.code === "Escape") modalFilm.close();
+    }
+
     // ////////////////////////////////////////////////// My code Denys Zabolotskyi
     const refs = {
       modalBtnWatched: document.querySelector('.watched'),
