@@ -66,3 +66,9 @@ table .vote-value {
     border-radius: 6px;
     color: #000000;
 }
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}

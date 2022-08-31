@@ -1,4 +1,5 @@
 .films {
+    flex: 1 1 auto;
   padding: 58px 0 60px 0;
 }
 
@@ -17,6 +18,12 @@
 .films-list__img {
   border-radius: 10px;
   height: 574px;
+  transition: scale 250ms;
+  cursor: pointer;
+
+    &:hover {
+        scale: 1.02;
+    }
 }
 
 .films-list__description {
