@@ -1,54 +1,78 @@
 .films {
-    margin: 58px 0 160px 0;
+  margin: 58px 0 160px 0;
 }
 
 .films-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 16px;
-    text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  text-align: center;
 }
 
 .films-list__item {
-    width: calc((100% - 32px) / 3);
-    
+  width: calc((100% - 32px) / 3);
 }
 
 .films-list__img {
-    border-radius: 10px;
-    object-fit: contain;
-    
+  border-radius: 10px;
+  height: 574px;
 }
 
 .films-list__description {
-    margin-top: 32px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+  margin-top: 12px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.films-list__title {
+  text-transform: uppercase;
+}
+
+.films-list__genres {
+  color: #ff6b08;
+}
+
+@media screen and (max-width: 767px) {
+  .films-list__img {
+    max-width: 280px;
+    max-height: 402px;
+  }
+
+  .films-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 16px;
+  }
+  .films-list__description {
+    font-size: 12px;
+    line-height: 1.33;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .films-list__item {
+    width: calc((100% - 16px) / 2);
+  }
+
+  .films-list__img {
+    max-width: 336px;
+    max-height: 420px;
+  }
+
+  .films-list__description {
+    font-size: 12px;
+    line-height: 1.33;
+    margin-top: 8px;
     margin-bottom: 32px;
-    text-align: center;
-    
-}
-
-@media screen and (max-width:767px) {
-    .films-list__img {
-        max-width: 280px;
-        max-height: 402px;
-    }
-
-    .films-list {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        column-gap: 16px;
-    }
-}
-
-@media screen and (max-width:1280px) {
-    .films-list__item {
-        width: calc((100% - 16px) / 2);
-    }
-
-    .films-list__img {
-        max-width: 336px;
-        max-height: 420px;
-    }
+  }
 }
