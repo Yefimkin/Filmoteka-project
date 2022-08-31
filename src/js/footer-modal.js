@@ -154,16 +154,14 @@ function onModalTeamClick(e) {
     onShow: (inst) => {
       addEventListener("keydown", checkeTheEscapeButtonToExit);
       inst.element().querySelector('.modal-close').onclick = inst.close;
-
     },
     onClose: () => removeEventListener("keydown", checkeTheEscapeButtonToExit)
-
-  });
+  })
 
   modalTeam.show();
-}
 
+  function checkeTheEscapeButtonToExit(event) {
+    if (event.code === "Escape") modalTeam.close();
+  }
+};
 
-function checkeTheEscapeButtonToExit(event) {
-  if (event.code === "Escape") modalTeam.close();
-}
