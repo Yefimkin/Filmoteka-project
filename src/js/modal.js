@@ -23,7 +23,7 @@ export default async function onClickFilm(e) {
   try {
     filmApiService.ID = filmID;
     const responceFilmID = await filmApiService.fetchMovieByID();
-    console.log(responceFilmID);
+    // console.log(responceFilmID);
     const {
       original_title,
       genres,
@@ -88,9 +88,7 @@ export default async function onClickFilm(e) {
                     </div>
                 </div>
                 <button type="button" class="modal-close" data-modal-close>
-                    <a>Close<svg class="modal-close__icon">
-                        <use href="./images/icons.svg#close-modal"></use>
-                    </svg></a>
+                    <a>Close</a>
                 </button>
             </div>`,
       {
