@@ -42,7 +42,7 @@ function onModalTeamClick(e) {
             <p class="team-cards_name">Denys</p>
             <img
               class="team-cards_photo"
-              src="${yefimkin}}"
+              src="${yefimkin}"
               alt="profile"
             />
             <p class="team-cards_post">Team lead</p>
