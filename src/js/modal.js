@@ -88,12 +88,16 @@ export default async function onClickFilm(e) {
                     </div>
                 </div>
                 <button type="button" class="modal-close" data-modal-close>
-                    <a>Close</a>
+                      <svg class="modal-close__svg" width="30" height="30" 
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="m7.975 8-.699.701 3.149 3.149 3.15 3.15-3.138 3.138L7.3 21.275l.712.713.713.712 3.137-3.137L15 16.425l3.138 3.138 3.137 3.137.713-.712.712-.713-3.137-3.137L16.425 15l3.15-3.15 3.15-3.15-.713-.712-.712-.713-3.15 3.15-3.15 3.15-3.138-3.138C10.137 8.712 8.713 7.3 8.699 7.3c-.014 0-.34.315-.724.7"
+                        fill-rule="evenodd"/>
+                      </svg>
                 </button>
             </div>`,
       {
         onShow: instance => {
-          instance.element().querySelector('a').onclick = instance.close;
+          instance.element().querySelector('.modal-close').onclick = instance.close;
         },
       }
     );
